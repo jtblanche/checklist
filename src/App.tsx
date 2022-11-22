@@ -25,7 +25,7 @@ export default function RecipeReviewCard() {
 
   const [open, setOpen] = React.useState(false)
 
-  const [showAllDays, setShowAllDays] = React.useState(false)
+  const [showAllDays, setShowAllDays] = React.useState((localStorage.getItem('showAllDays') ?? 'false') === 'true')
 
   const dailyTasks: CardInputs = {
     title: 'Daily tasks',
@@ -173,10 +173,11 @@ export default function RecipeReviewCard() {
   const handleToggleShowAllDays = () => {
     const newShowAllDays = !showAllDays;
     setShowAllDays(newShowAllDays);
+    localStorage.setItem('showAllDays', newShowAllDays.toString())
     setTaskLists(getTaskLists(date.parse(currentDateViewStr, 'YYYY/MM/DD'), newShowAllDays));
   }
 
-  const [taskLists, setTaskLists] = React.useState(getTaskLists(new Date(), false));
+  const [taskLists, setTaskLists] = React.useState(getTaskLists(new Date(), showAllDays));
 
   const moveToPreviousDay = () => {
     const previousDay = date.addDays(date.parse(currentDateViewStr, 'YYYY/MM/DD'), -1);
@@ -211,13 +212,11 @@ export default function RecipeReviewCard() {
             <MenuIcon />
           </IconButton>
           <TaskAltIcon sx={{ marginRight: 3 }} />
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
+            Ulitimate To Do List
+          </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' } }}>
-          </Typography>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            Cleaning Checklist
-          </Typography>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex', md: 'none' } }}>
-            Checklist
+            UTDL
           </Typography>
           <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <IconButton
