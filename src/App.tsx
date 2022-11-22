@@ -247,7 +247,7 @@ export default function RecipeReviewCard() {
           </Box>
         </Toolbar>
       </AppBar>
-      <Box sx={{ margin: 3 }}>
+      <Box sx={{ marginTop: 3, marginBottom: 3 }}>
         <Grid
           direction="column"
           container
