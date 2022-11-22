@@ -133,7 +133,7 @@ export default function CleaningCard({ localStorageTasks, title = '', subtitle =
     };
 
     return (
-        <Card sx={{ minWidth: '100%', width: 400 }}>
+        <Card sx={{ width: 400, maxWidth: '100vw' }}>
             <CardHeader
                 title={title}
                 subheader={subtitle}

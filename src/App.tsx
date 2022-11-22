@@ -2,6 +2,7 @@ import * as React from 'react';
 import date from 'date-and-time';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import Checkbox from '@mui/material/Checkbox';
 import CleaningCard, { CardInputs, CardSchedule } from './CleaningCard';
 import Grid from '@mui/material/Grid';
@@ -15,6 +16,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
@@ -208,10 +210,13 @@ export default function RecipeReviewCard() {
           >
             <MenuIcon />
           </IconButton>
+          <TaskAltIcon sx={{ marginRight: 3 }} />
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' } }}>
+          </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             Cleaning Checklist
           </Typography>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex', md: 'none' } }}>
             Checklist
           </Typography>
           <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -225,14 +230,32 @@ export default function RecipeReviewCard() {
             >
               <NavigateBeforeIcon />
             </IconButton>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="today"
+              onClick={navigateToToday}
+            >
+              <CalendarMonthIcon />
+            </IconButton>
             <Typography
               variant="h6"
               component="div"
               sx={{
-                display: 'flex',
+                display: { xs: 'none', sm: 'flex' },
                 flexGrow: 1,
               }}>
               {currentDateViewStr}
+            </Typography>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{
+                display: { xs: 'flex', sm: 'none' },
+                flexGrow: 1,
+              }}>
+              {currentDateViewStr.slice(5)}
             </Typography>
             <IconButton
               size="large"
