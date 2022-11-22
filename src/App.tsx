@@ -28,118 +28,117 @@ export default function RecipeReviewCard() {
   const [showAllDays, setShowAllDays] = React.useState((localStorage.getItem('showAllDays') ?? 'false') === 'true')
 
   const dailyTasks: CardInputs = {
-    title: 'Daily tasks',
+    title: 'Daily quests',
     subtitle: 'Try to complete these every day!',
     localStorageTasks: new LocalStorageList('DailyList', [
-      'One load of laundry',
-      'Dishes',
+      'Clean dishes',
+      'Clear out clutter',
       'Make beds',
-      'Spray countertops',
-      'Pick up clutter',
+      'One load of laundry',
+      'Scoop litter',
       'Sort mail',
-      'Trash'
+      'Take out trash',
     ], CardSchedule.Daily),
     schedule: CardSchedule.Daily
   };
 
   const monthlyTasks: CardInputs = {
-    title: 'Monthly tasks',
+    title: 'Monthly quests',
     subtitle: 'Try to complete these within the month!',
     localStorageTasks: new LocalStorageList('MonthlyList', [
-      'Dust ceiling fans',
-      'Clean oven',
-      'Clean inside of fridge',
+      'Clean out fridge',
+      'Clean out garage',
+      'Clean out oven',
+      'Deep clean sofas',
+      'Dust fans',
+      'Dust lights',
+      'Dust vents',
+      'Replace litter',
       'Wash windows',
-      'Pick up garage',
-      'Pick up basement',
-      'Dust/clean baseboards',
-      'Vacuum inside furniture',
-      'Dust air vents',
-      'Clean light fixtures'
     ], CardSchedule.Monthly),
     schedule: CardSchedule.Monthly
   };
 
   const mondayTasks: CardInputs = {
-    title: 'Monday tasks - Kitchen',
+    title: 'Monday quests - Bath rooms',
     subtitle: 'Try to complete these every Monday!',
     localStorageTasks: new LocalStorageList('MondayList', [
-      'Clean kitchen table',
-      'Wipe down sink and counters',
-      'Vacuum and/or mop',
-      'Wipe down appliances',
+      'Clean floors',
+      'Clean mirrors',
+      'Clean surfaces',
+      'Wash towels and mats',
     ], CardSchedule.Monday),
     schedule: CardSchedule.Monday
   };
 
   const tuesdayTasks: CardInputs = {
-    title: 'Tuesday tasks - Living room',
+    title: 'Tuesday quests - Living room',
     subtitle: 'Try to complete these every Tuesday!',
     localStorageTasks: new LocalStorageList('TuesdayList', [
-      'Pick up clutter',
+      'Clean floors',
+      'Clear out clutter',
       'Dust surfaces',
-      'Vacuum and/or mop',
-      'Wash blankets',
+      'Wash sheets',
     ], CardSchedule.Tuesday),
     schedule: CardSchedule.Tuesday
   };
 
   const wednesdayTasks: CardInputs = {
-    title: 'Wednesday tasks - Bed room',
+    title: 'Wednesday quests - Kitchen',
     subtitle: 'Try to complete these every Wednesday!',
     localStorageTasks: new LocalStorageList('WednesdayList', [
-      'Put away clothes/ Pick up clutter',
-      'Dust surfaces',
-      'Wash bedding',
-      'Vacuum and/or mop',
+      'Clean appliances',
+      'Clean floors',
+      'Clean kitchen table',
+      'Clean sink and counters',
     ], CardSchedule.Wednesday),
     schedule: CardSchedule.Wednesday
   };
 
   const thursdayTasks: CardInputs = {
-    title: 'Thursday tasks - Bath room',
+    title: 'Thursday quests - Bed rooms',
     subtitle: 'Try to complete these every Thursday!',
     localStorageTasks: new LocalStorageList('ThursdayList', [
-      'Sanitize toilet',
-      'Vacuum and/or mop',
-      'Wash shower, sink and mirrors',
-      'Wash towels and mats',
+      'Clean floors',
+      'Clean surfaces',
+      'Clear out clutter',
+      'Wash bedding',
     ], CardSchedule.Thursday),
     schedule: CardSchedule.Thursday
   };
 
   const fridayTasks: CardInputs = {
-    title: 'Friday tasks - Dining',
+    title: 'Friday quests - Dining room',
     subtitle: 'Try to complete these every Friday!',
     localStorageTasks: new LocalStorageList('FridayList', [
-      'Clean off table',
-      'Vacuum and/or mop',
-      'Dust surfaces',
-      'Pick up clutter',
+      'Clean dining table',
+      'Clean floors',
+      'Clear out clutter',
+      'Clean surfaces',
     ], CardSchedule.Friday),
     schedule: CardSchedule.Friday
   };
 
   const saturdayTasks: CardInputs = {
-    title: 'Saturday tasks - Entry',
+    title: 'Saturday quests - Meals',
     subtitle: 'Try to complete these every Saturday!',
     localStorageTasks: new LocalStorageList('SaturdayList', [
-      'Sanitize door knobs',
-      'Dust surfaces',
-      'Vacuum and/or mop',
-      'Put away shoes/coats/hats',
+      'Clean out fridge',
+      'Plan meals',
+      'Get groceries',
+      'Cook meals',
     ], CardSchedule.Saturday),
     schedule: CardSchedule.Saturday
   };
 
   const sundayTasks: CardInputs = {
-    title: 'Sunday tasks - Grocery',
+    title: 'Sunday quests - Front room',
     subtitle: 'Try to complete these every Sunday!',
     localStorageTasks: new LocalStorageList('SundayList', [
-      'Clean out fridge',
-      'Meal plan',
-      'Grocery shop and fill gas tank',
-      'Meal prep',
+      'Clean door knobs',
+      'Clean floors',
+      'Clean surfaces',
+      'Clear out clutter',
     ], CardSchedule.Sunday),
     schedule: CardSchedule.Sunday
   };
@@ -213,10 +212,10 @@ export default function RecipeReviewCard() {
           </IconButton>
           <TaskAltIcon sx={{ marginRight: 3 }} />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
-            Ulitimate To Do List
+            Quest Log At Home
           </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' } }}>
-            UTDL
+            QLAH
           </Typography>
           <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <IconButton
